@@ -6,10 +6,10 @@ using UnityEngine.Rendering;
 public class CarController : MonoBehaviour
 {
     //Wheels
-    [SerializeField] private WheelCollider frontLeft;
-    [SerializeField] private WheelCollider frontRight;
-    [SerializeField] private WheelCollider backLeft;
-    [SerializeField] private WheelCollider backRight;
+    [SerializeField] WheelCollider frontLeft;
+    [SerializeField] WheelCollider frontRight;
+    [SerializeField] WheelCollider backLeft;
+    [SerializeField] WheelCollider backRight;
 
     //Properties
     [SerializeField] private float maxSteerAngle = 30f;
@@ -23,6 +23,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float steerInput;  //-1.0 to 1.0
     [SerializeField] private float throttleInput;   //-1.0 to 1.0
     [SerializeField] private float brakeInput;  //0.0 to 1.0
+    [SerializeField] private float currentSpeed;
 
 
     public float speed => rb.linearVelocity.magnitude * 3.6f;   //3.6 is conversion factor m/s to km/h
@@ -34,11 +35,13 @@ public class CarController : MonoBehaviour
         brakeInput = Mathf.Clamp01(brake);
     }
 
-    private void FixedUpdate()  //Try different physics steps
+    private void FixedUpdate() 
     {
+        currentSpeed = speed;
         Steer();
         Throttle();
         Brake();
+        SpeedCap();
     }
 
     private void Steer()
@@ -52,18 +55,17 @@ public class CarController : MonoBehaviour
         backRight.steerAngle = 0f;
     }
 
-    private void Throttle()     //RWD
+    private void Throttle()
     {
         float torque = throttleInput * motorTorque;
 
-        if (speed >= maxSpeed && throttleInput > 0f)
-            torque = 0f;
+        if (speed >= maxSpeed && throttleInput > 0f) torque = 0f;
 
         backLeft.motorTorque = torque;
         backRight.motorTorque = torque;
 
-        frontLeft.motorTorque = 0f;
-        frontRight.motorTorque = 0f;
+        frontLeft.motorTorque = torque;
+        frontRight.motorTorque = torque;
     }
     private void Brake()    //4 wheel braking
     {
@@ -73,5 +75,20 @@ public class CarController : MonoBehaviour
         frontRight.brakeTorque = torque;
         backLeft.brakeTorque = torque;
         backRight.brakeTorque = torque;
+    }
+
+    private void SpeedCap()
+    {
+        float maxSpeedMS = maxSpeed / 3.6f;
+
+        Vector3 horizontalVelocity = rb.linearVelocity;
+        horizontalVelocity.y = 0f;
+
+        if (horizontalVelocity.magnitude > maxSpeedMS)
+        {
+            Vector3 limitedVelocity = horizontalVelocity.normalized * maxSpeedMS;
+
+            rb.linearVelocity = new Vector3(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z);
+        }
     }
 }
