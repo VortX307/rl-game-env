@@ -580,6 +580,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2876802034362570113, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876802034362570113, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3103860812607724231, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3103860812607724231, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3941045557945682067, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -627,6 +643,42 @@ PrefabInstance:
     - target: {fileID: 4466084984105177641, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_Name
       value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397397970435244394, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397397970435244394, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045855084488182294, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: alpha
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045855084488182294, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: brakeTorque
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045855084488182294, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: motorTorque
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045855084488182294, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: minSteerAngle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998694262984452411, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998694262984452411, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147618196226548683, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_Mass
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
