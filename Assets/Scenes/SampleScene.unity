@@ -435,6 +435,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3941045557945682067, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
   m_PrefabInstance: {fileID: 2027021914}
   m_PrefabAsset: {fileID: 0}
+--- !u!146 &1114014883 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 1022461407402936309, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+  m_PrefabInstance: {fileID: 2027021914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1468592062 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 7758618703927022077, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+  m_PrefabInstance: {fileID: 2027021914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1872757341 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 5599223945781730248, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+  m_PrefabInstance: {fileID: 2027021914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1928251096
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +587,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 939596656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &1985618974 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 8929580247971819863, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+  m_PrefabInstance: {fileID: 2027021914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2027021914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,6 +600,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -328862717120975844, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -328862717120975844, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: wheels.Array.data[0].collider
+      value: 
+      objectReference: {fileID: 1468592062}
+    - target: {fileID: -328862717120975844, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: wheels.Array.data[1].collider
+      value: 
+      objectReference: {fileID: 1114014883}
+    - target: {fileID: -328862717120975844, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: wheels.Array.data[2].collider
+      value: 
+      objectReference: {fileID: 1985618974}
+    - target: {fileID: -328862717120975844, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: wheels.Array.data[3].collider
+      value: 
+      objectReference: {fileID: 1872757341}
+    - target: {fileID: 1022461407402936309, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2876802034362570113, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_Mass
       value: 100
@@ -602,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941045557945682067, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.82874
+      value: -4.38
       objectReference: {fileID: 0}
     - target: {fileID: 3941045557945682067, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -652,6 +696,10 @@ PrefabInstance:
       propertyPath: m_ForceAppPointDistance
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 5599223945781730248, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7045855084488182294, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: alpha
       value: 0.002
@@ -668,6 +716,10 @@ PrefabInstance:
       propertyPath: minSteerAngle
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7758618703927022077, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7998694262984452411, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_Mass
       value: 100
@@ -678,7 +730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147618196226548683, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
       propertyPath: m_Mass
-      value: 500
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929580247971819863, guid: 8c82b0aaea80c1a46871b8a2ad0c6fd5, type: 3}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

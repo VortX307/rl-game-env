@@ -17,7 +17,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private float brakeTorque = 9000f;
     [SerializeField] private float engineBrakeTorque = 150f;
     [SerializeField] private float maxSpeed = 350f;     //Kmph
-    float k = 0.0092f;
+    [SerializeField] private float downforce = 100f;
+    private float k = 0.0092f;
 
 
     [SerializeField] private Rigidbody rb;      //Experiment with different values of COM
@@ -34,6 +35,11 @@ public class CarController : MonoBehaviour
     public float Speed => rb.linearVelocity.magnitude * 3.6f;   //3.6 is conversion factor m/s to km/h
 
 
+    private void Awake()
+    {
+        rb.centerOfMass = new Vector3(0f, -0.8f, 0f);
+    }
+
     public void GetInputs(float steer, float throttle, float brake)
     {
         steerInput = Mathf.Clamp(steer, -1.0f, 1.0f);
@@ -48,6 +54,7 @@ public class CarController : MonoBehaviour
         Throttle();
         Brake();
         SpeedCap();
+        ApplyDownforce();
         if (throttleInput < 0.75f && throttleInput > -0.75 && brakeInput == 0) EngineBrake();
     }
 
@@ -106,5 +113,10 @@ public class CarController : MonoBehaviour
         frontRight.brakeTorque = engineBrakeTorque;
         backLeft.brakeTorque = engineBrakeTorque;
         backRight.brakeTorque = engineBrakeTorque;
+    }
+
+    private void ApplyDownforce()
+    {
+        rb.AddForce(-transform.up * downforce * currentSpeed * currentSpeed / 12.96f, ForceMode.Force);
     }
 }
