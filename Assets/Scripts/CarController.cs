@@ -18,7 +18,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private float engineBrakeTorque = 150f;
     [SerializeField] private float maxSpeed = 350f;     //Kmph
     [SerializeField] private float downforce = 100f;
-    private float k = 0.0092f;
+    private float kSteer = 0.0092f;
+    private float kMotor = 0.004f;
+    private float kBrake = 0.026f;
 
 
     [SerializeField] private Rigidbody rb;      //Experiment with different values of COM
@@ -60,7 +62,7 @@ public class CarController : MonoBehaviour
 
     private void Steer()
     {
-        float angle = steerInput * maxSteerAngle * Mathf.Exp(-k * currentSpeed);
+        float angle = steerInput * maxSteerAngle * Mathf.Exp(-kSteer * currentSpeed);
         currentSteerAngle = angle;
 
         frontLeft.steerAngle = angle;
@@ -72,7 +74,7 @@ public class CarController : MonoBehaviour
 
     private void Throttle()
     {
-        float torque = throttleInput * motorTorque;
+        float torque = throttleInput * motorTorque * Mathf.Exp(-kMotor * currentSpeed);
 
         if (Speed >= maxSpeed && throttleInput > 0f) torque = 0f;
 
@@ -84,7 +86,7 @@ public class CarController : MonoBehaviour
     }
     private void Brake()    //4 wheel braking
     {
-        float torque = brakeInput * brakeTorque;
+        float torque = brakeInput * brakeTorque * (1 - 0.8f * Mathf.Exp(-kBrake * currentSpeed));
 
         frontLeft.brakeTorque = torque;
         frontRight.brakeTorque = torque;

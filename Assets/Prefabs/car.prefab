@@ -293,6 +293,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cbcbdeafb7115fa49b887303c33b6545, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbcbdeafb7115fa49b887303c33b6545, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbcbdeafb7115fa49b887303c33b6545, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbcbdeafb7115fa49b887303c33b6545, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.69629
       objectReference: {fileID: 0}
@@ -396,7 +408,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4466084984105177641}
   serializedVersion: 5
-  m_Mass: 700
+  m_Mass: 800
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -432,8 +444,8 @@ MonoBehaviour:
   backLeft: {fileID: 8929580247971819863}
   backRight: {fileID: 5599223945781730248}
   maxSteerAngle: 30
-  motorTorque: 2000
-  brakeTorque: 5000
+  motorTorque: 3000
+  brakeTorque: 7000
   engineBrakeTorque: 200
   maxSpeed: 350
   downforce: 100
@@ -469,13 +481,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WheelSync
   wheels:
-  - collider: {fileID: 0}
+  - collider: {fileID: 7758618703927022077}
     mesh: {fileID: 4267659416912062395}
-  - collider: {fileID: 0}
+  - collider: {fileID: 1022461407402936309}
     mesh: {fileID: 3542242107849688587}
-  - collider: {fileID: 0}
+  - collider: {fileID: 8929580247971819863}
     mesh: {fileID: 7514947967763171373}
-  - collider: {fileID: 0}
+  - collider: {fileID: 5599223945781730248}
     mesh: {fileID: 5130398163144653854}
 --- !u!65 &-8626537006807285038
 BoxCollider:
